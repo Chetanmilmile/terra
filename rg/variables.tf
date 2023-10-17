@@ -1,5 +1,5 @@
 variable "resource_group_location" {
-  default     = "eastus"
+  default     = "eastus3"
   description = "Location of the resource group."
 }
 
