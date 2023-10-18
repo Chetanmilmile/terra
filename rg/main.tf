@@ -31,6 +31,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network_hub" "example" {
+  count = length(var.resource_group_names)
   name = var.azurerm_virtual_network_hub[count.index]
   location = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
@@ -38,6 +39,7 @@ resource "azurerm_virtual_network_hub" "example" {
 }
 
 resource "azurerm_virtual_network_spoke" "example" {
+  count = length(var.resource_group_names)
   name = var.azurerm_virtual_network_spoke[count.index]
   location = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
